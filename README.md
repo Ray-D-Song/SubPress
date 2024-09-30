@@ -1,8 +1,10 @@
-Free and open-source subtitle translation tool.
-Built with Cloudflare Workers AI.
+# Online Subtitle Burning Website
 
-Roadmap:
-- [x] Convert video to mp3 format in the browser using ffmpeg.wasm
-- [x] Send mp3 to worker, generate vtt subtitles through whisper
-- [x] translate subtitles through cloudflare AI qwen1.5-7b-chat-awq
-- [ ] Resolve the cloudflare whisper audio duration limit of less than 5 minutes
+This is an online subtitle burning website based on ffmpeg.wasm, Service Worker, React, and shadcn.
+
+## Tech Stack
+
+- ffmpeg.wasm: Run FFmpeg in the browser
+- Service Worker: Implement offline functionality and caching
+- React: User interface framework
+- shadcn: UI component library
