@@ -2,7 +2,7 @@ const CACHE_NAME = 'ffmpeg-cache-v1';
 const urlsToCache = [
   'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm/ffmpeg-core.js',
   'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm/ffmpeg-core.wasm',
-  'https://subpress.jenrays.com/Yahei.ttf'
+  'https://subpress.pages.dev/Yahei.ttf'
 ];
 
 self.addEventListener('install', (event) => {

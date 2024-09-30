@@ -170,7 +170,7 @@ export default function Component() {
       </div>
       <footer className="text-center text-sm text-gray-500 fixed bottom-4 w-full">
         <p>
-          <a href="https://subpress.jenrays.com" target="_blank" rel="noopener noreferrer">SubPress</a>
+          <a href="https://subpress.pages.dev" target="_blank" rel="noopener noreferrer">SubPress</a>
         </p>
         <p>
           &copy; {new Date().getFullYear()} Ray-D-Song. {t('allRightsReserved')}
