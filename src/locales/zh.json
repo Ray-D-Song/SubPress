@@ -1,0 +1,9 @@
+{
+  "title": "SubPress",
+  "description": "在线压制字幕，完全在浏览器中完成",
+  "dropVideoHere": "将视频文件拖放到这里，或点击选择文件",
+  "supportedVideoFormats": "支持的格式：MP4, MOV, AVI, MKV",
+  "dropSubtitleHere": "将字幕文件拖放到这里，或点击选择文件",
+  "supportedSubtitleFormats": "支持的格式：SRT, VTT",
+  "burnSubtitles": "开始任务"
+}

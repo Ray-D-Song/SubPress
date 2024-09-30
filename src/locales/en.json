@@ -1,0 +1,9 @@
+{
+  "title": "SubPress",
+  "description": "Burn subtitles into videos online, completely done in the browser",
+  "dropVideoHere": "Drop your video file here, or click to select file",
+  "supportedVideoFormats": "Supported formats: MP4, MOV, AVI, MKV",
+  "dropSubtitleHere": "Drop your subtitle file here, or click to select file",
+  "supportedSubtitleFormats": "Supported formats: SRT, VTT",
+  "burnSubtitles": "Go"
+}
