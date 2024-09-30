@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone"
 import '@/utils/i18n'
 import { useTranslation } from 'react-i18next'
 import i18n from 'i18next'
-import { FileVideo, Captions, Check, X, Languages } from "lucide-react"
+import { FileVideo, Captions, Check, X, Languages, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import useFFmpeg from "./utils/ffmpeg"
 
@@ -48,39 +48,58 @@ export default function Component() {
       return
     }
 
-    setIsProcessing(true)
-    setProgress(0)
+    try {
+      setIsProcessing(true)
+      setProgress(0)
 
-    const burnedVideo = await useFFmpeg(uploadedVideo, uploadedSubtitle, {
-      onProgress: (progress) => {
-        setProgress(progress)
-      },
-      onTip: (tip) => {
-        console.warn(tip)
+      const burnedVideo = await useFFmpeg(uploadedVideo, uploadedSubtitle, {
+        onProgress: (progress) => {
+          setProgress(progress)
+        },
+        onTip: (tip) => {
+          console.warn(tip)
+        }
+      })
+      if (burnedVideo) {
+        const url = URL.createObjectURL(burnedVideo)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `${uploadedVideo.name.replace(`.${uploadedVideo.name.split('.').pop()}`, '')}-burned.${uploadedVideo.name.split('.').pop()}`
+        a.click()
+        URL.revokeObjectURL(url)
+      } else {
+        console.error('Failed to burn subtitles')
       }
-    })
-    if (burnedVideo) {
-      const url = URL.createObjectURL(burnedVideo)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${uploadedVideo.name.replace(`.${uploadedVideo.name.split('.').pop()}`, '')}-burned.${uploadedVideo.name.split('.').pop()}`
-      a.click()
-      URL.revokeObjectURL(url)
-    } else {
-      console.error('Failed to burn subtitles')
+    } catch (error) {
+      console.error('Failed to burn subtitles', error)
+    } finally {
+      setIsProcessing(false)
+      setProgress(0)
     }
   }
 
   return (
     <div className="min-h-screen bg-black text-gray-200 p-8">
-      <Button
-        onClick={() => {
-          i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')
-        }}
-        className='absolute top-10 right-10 bg-blue-600 hover:bg-blue-700'
-      >
-        <Languages className="h-6 w-6" />
-      </Button>
+      <div className="absolute top-10 right-10 flex items-center space-x-2">
+        <Button
+          onClick={() => {
+            i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')
+          }}
+          variant="ghost"
+          size="icon"
+        >
+          <Languages className="h-6 w-6" />
+        </Button>
+        <Button
+          onClick={() => {
+            window.open('https://github.com/Ray-D-Song/SubPress', '_blank')
+          }}
+          variant="ghost"
+          size="icon"
+        >
+          <Github className="h-6 w-6" />
+        </Button>
+      </div>
 
       <div className="max-w-3xl mx-auto space-y-4 mt-32">
         <h1 className="text-3xl font-bold text-center">{t('title')}</h1>

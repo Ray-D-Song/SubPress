@@ -1,5 +1,7 @@
 # 在线字幕压制网站
 
+[English](README.md)
+
 这是一个基于 ffmpeg.wasm、Service Worker、React 和 shadcn 的在线字幕压制网站。
 
 ## 技术栈
